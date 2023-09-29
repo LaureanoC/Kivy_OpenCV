@@ -1,0 +1,80 @@
+#:kivy 2.1
+
+ScreenManager:
+    id: screen_manager
+
+    HomeScreen:
+        id: home
+        name: 'home'
+        manager: 'screen_manager'
+
+    RegisterScreen:
+        id: register
+        name: 'register'
+        manager: 'screen_manager'
+
+    IndexScreen:
+        id: index
+        name: 'index'
+        manager: 'screen_manager'
+
+
+        
+
+<HomeScreen>:
+    GridLayout:
+        cols: 1
+        spacing:30
+        padding:40
+        canvas:
+            Color:
+                rgba: 0.961, 0.961, 0.863, 1
+            Rectangle:
+                pos: self.pos
+                size: self.size
+
+        Button:
+            text:'Registrarse'
+            on_release: app.root.current = 'register'
+            color: 1, 1, 1, 1
+            font_size: 25
+            background_color: 0.529, 0.812, 0.980, 1
+            size_hint: .2,.2
+
+
+        Button:
+            text:'Login'
+            on_release: root.login() ; app.root.current = 'index'
+            color: 1, 1, 1, 1
+            font_size: 25
+            background_color: 0.529, 0.812, 0.980, 1
+            size_hint: .2,.2
+
+<RegisterScreen>:
+    GridLayout:
+        cols: 1
+        spacing:30
+        padding:40
+        canvas:
+            Color:
+                rgba: 0.961, 0.961, 0.863, 1
+            Rectangle:
+                pos: self.pos
+                size: self.size
+        Label:
+            text:'Registrarse'
+            font_size: 35
+            color: 0, 0, 0, 1
+
+        TextInput:
+            id: carpeta
+            
+
+        Button:
+            text:'Registrar'
+            on_release: root.registrarImagenes(carpeta.text) ; app.root.current = 'home'
+            
+
+<IndexScreen>:
+    Label:
+        text: "Bienvenido!"
