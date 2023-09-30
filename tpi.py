@@ -16,8 +16,14 @@ class RegisterScreen(Screen):
 class HomeScreen(Screen):
     
     def login(self):
-        entrar = reconocer()
-        print(entrar)
+            entrar = False
+            try:
+                entrar = reconocer()
+            except:
+                print('Debe registrarse primero')
+                pass
+            return entrar
+        
 
 class ScreenManager(ScreenManager):
     pass

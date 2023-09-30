@@ -44,11 +44,13 @@ ScreenManager:
 
         Button:
             text:'Login'
-            on_release: root.login() ; app.root.current = 'index'
             color: 1, 1, 1, 1
             font_size: 25
             background_color: 0.529, 0.812, 0.980, 1
             size_hint: .2,.2
+            on_release: 
+                if root.login(): \
+                app.root.current = 'index'
 
 <RegisterScreen>:
     GridLayout:
@@ -68,6 +70,7 @@ ScreenManager:
 
         TextInput:
             id: carpeta
+            multiline: False
             
 
         Button:
