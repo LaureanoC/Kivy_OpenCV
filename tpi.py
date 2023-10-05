@@ -5,7 +5,6 @@ from create_data import crearImagenes
 from faceRecognition import reconocer
 
 class IndexScreen(Screen):
-    
     pass
 
 class RegisterScreen(Screen):
@@ -21,7 +20,6 @@ class HomeScreen(Screen):
                 entrar = reconocer()
             except:
                 print('Debe registrarse primero')
-                pass
             return entrar
         
 
